@@ -9,7 +9,7 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 
 //Global Variables
 var randNum;
-var message = '';
+
 
 // An array that holds data for quotes. Each object contains quote, source, citation and year properties.
 var quotes = [
@@ -75,26 +75,27 @@ var quotes = [
 }
 ];
 
-//generates a random number from 0 to the length of the quotes array and stores in in the randNum variable.
+//Generates a random quote from the quotes array.
 function getRandomQuote(){
     randNum = [Math.floor(Math.random() * quotes.length)];
-        return randNum;
+    return quotes[randNum].quote;
 	}
 
-//prints the random quote to the page 
+
+//prints the random quote to the page
 function printQuote (message){
-  message += '<p class="quote">' + quotes[getRandomQuote()].quote + '</p>'; // Uses the getRandomQuote() function to generate a random quote.
+  message += '<p class="quote">' + getRandomQuote() + '</p>';
   message += '<p class="source">' + quotes[randNum].source;
-  if (quotes.citation !== '' ){
+  if (quotes.citation !== ''){
   message += '<span class="citation">' + quotes[randNum].citation + '</span>';
   }
-  if (quotes.year !== ''){
+  if (quotes.years !== ''){
     message += '<span class="year">' + quotes[randNum].year + '</span></p>'
   } else {
     message += '</p>'
   }
- document.getElementById('quote-box').innerHTML = message;
-
+  document.getElementById('quote-box').innerHTML = message;
 }
+
 //calls the printQuote function
 printQuote();
