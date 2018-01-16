@@ -83,8 +83,8 @@ function getRandomQuote(){
 
 
 //prints the random quote to the page
-function printQuote (message){
-  message += '<p class="quote">' + getRandomQuote() + '</p>';
+function printQuote (){
+  var message = '<p class="quote">' + getRandomQuote() + '</p>';
   message += '<p class="source">' + quotes[randNum].source;
   if (quotes.citation !== ''){
   message += '<span class="citation">' + quotes[randNum].citation + '</span>';
@@ -96,6 +96,3 @@ function printQuote (message){
   }
   document.getElementById('quote-box').innerHTML = message;
 }
-
-//calls the printQuote function
-printQuote();
